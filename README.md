@@ -54,3 +54,6 @@ positivity
 -add music to drop down - reference assignment from module 1, card maker & rock paper scissors
 
 -give option to accept ambient music as background or no music
+
+-random quote of the day generator
+find simple api
