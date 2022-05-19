@@ -1,10 +1,19 @@
-import List from './components/List';
+import { Switch, Route } from 'react-router-dom';
+import List from './components/List/List';
+import Login from './views/Login/Login';
 
 export default function App() {
   return (
     <>
-      <h1>Hello World</h1>
-      <List />
+      <h1>Hello Worlds</h1>
+      <Switch>
+        <Route path="/login">
+          <Login />
+        </Route>
+        <Route path="/">
+          <List />
+        </Route>
+      </Switch>
     </>
   );
 }
