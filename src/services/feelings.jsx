@@ -2,6 +2,7 @@ import { client, checkError } from './client.js';
 
 export async function getFeelings() {
   const resp = await client.from('feelings_list').select('*');
+  console.log('resp', resp);
   return checkError(resp);
 }
 

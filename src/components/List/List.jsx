@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
-import { useSyncExternalStore } from 'react';
 import { getFeelings } from '../../services/feelings';
 
 export default function List() {
-  const [feelings, setFeelings] = useState('');
+  const [feelings, setFeelings] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -13,12 +12,15 @@ export default function List() {
       setFeelings(data);
     };
     fetchFeels();
-  });
+  }, []);
+  if (loading) return <div>loading</div>;
   return (
     <div className="list">
       <h1>List of Feelings</h1>
       <ul>
-        <li>Happy</li>
+        {feelings.map((object) => (
+          <li key={object.id}>{object.mood}</li>
+        ))}
       </ul>
     </div>
   );
