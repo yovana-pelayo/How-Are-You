@@ -1,5 +1,5 @@
 import { Switch, Route } from 'react-router-dom';
-import List from './components/List/List';
+import ListDetail from './components/ListDetail/ListDetail';
 import Login from './views/Login/Login';
 
 export default function App() {
@@ -11,7 +11,7 @@ export default function App() {
           <Login />
         </Route>
         <Route path="/">
-          <List />
+          <ListDetail />
         </Route>
       </Switch>
     </>
