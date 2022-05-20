@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
 import { createContext } from 'react';
-import { getEntries } from '../../services/entries';
+// import { getEntries } from '../../services/entries';
 
 export const EntryContext = createContext();
 
@@ -17,6 +17,7 @@ const EntryProvider = ({ children }) => {
   //     };
   //     fetchEntries();
   //   }, []);
+  //
 
   return (
     <EntryContext.Provider value={{ entries, setEntries, loading, setLoading }}>

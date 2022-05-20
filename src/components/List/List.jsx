@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useEntryContext } from '../../context/EntryContext/EntryContext';
 import { getEntries } from '../../services/entries';
+import ItemDetail from '../ItemDetail/ItemDetail';
 
 export default function List() {
   const { entries, setEntries, setLoading, loading } = useEntryContext();
@@ -12,13 +13,13 @@ export default function List() {
       setLoading(false);
       setEntries(data);
     };
-    fetchEntries;
+    fetchEntries();
   }, []);
   if (loading) return <div>loading</div>;
   return (
     <div className="list">
       {entries.map((entry) => (
-        <p key={entry.id}></p>
+        <ItemDetail entry={entry} />
       ))}
     </div>
   );

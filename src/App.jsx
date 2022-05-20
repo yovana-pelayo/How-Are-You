@@ -1,6 +1,5 @@
-import { BrowserRouter } from 'react-router-dom';
 import { Switch, Route } from 'react-router-dom';
-// import ItemDetail from './components/ItemDetail/ItemDetail';
+import ItemDetail from './components/ItemDetail/ItemDetail';
 import List from './components/List/List';
 import { EntryProvider } from './context/EntryContext/EntryContext';
 // import Login from './views/Login/Login';
@@ -10,13 +9,14 @@ export default function App() {
     <>
       <EntryProvider>
         <h1>Hello Worlds</h1>
-        <BrowserRouter>
-          <Switch>
-            <Route path="/">
-              <List />
-            </Route>
-          </Switch>
-        </BrowserRouter>
+        <Switch>
+          <Route exact path="/item">
+            <ItemDetail />
+          </Route>
+          <Route path="/">
+            <List />
+          </Route>
+        </Switch>
       </EntryProvider>
     </>
   );
