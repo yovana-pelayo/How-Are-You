@@ -1,6 +1,6 @@
-import { client, checkError } from './client';
+import { client, checkError } from './client.js';
 
-export async function getFeelings() {
+export async function getEntries() {
   const resp = await client.from('feelings_list').select('*');
   console.log('resp', resp);
   return checkError(resp);

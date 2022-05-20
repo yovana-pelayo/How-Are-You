@@ -1,34 +1,27 @@
-import { useEffect, useState } from 'react';
-import { getFeelings } from '../../services/feelings';
-import ItemDetail from '../ItemDetail/ItemDetail';
+import { useEffect } from 'react';
+import { useEntryContext } from '../../context/EntryContext/EntryContext';
+import { getEntries } from '../../services/entries';
 
 export default function List() {
-  const [entries, setEntries] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const { entries, setEntries, setLoading, loading } = useEntryContext();
 
   useEffect(() => {
-    const fetchFeels = async () => {
-      const data = await getFeelings();
+    const fetchEntries = async () => {
+      const data = await getEntries();
       console.log('data', data);
       setLoading(false);
       setEntries(data);
     };
-    fetchFeels();
+    fetchEntries;
   }, []);
   if (loading) return <div>loading</div>;
   return (
     <div className="list">
-      <h1>List of Feelings</h1>
-      <ul>
-        <li>
-          <ItemDetail />
-        </li>
-      </ul>
+      {entries.map((entry) => (
+        <p key={entry.id}></p>
+      ))}
     </div>
   );
 }
 
 // fetching data from supa base by calling the fetchFeels function
-//
-const [item, setItem] = useState({});
-const [loading, setLoading] = useState(true);

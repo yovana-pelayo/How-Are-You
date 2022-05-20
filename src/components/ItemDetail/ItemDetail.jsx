@@ -1,13 +1,11 @@
-export default function ItemDetail() {
+export default function ItemDetail({}) {
   return (
     <div>
-      <ul>
-        {item.map((object) => (
-          <li key={object.id}>{object.mood}</li>
-        ))}
-        <p>{object.why}</p>
-        <p>{object.need}</p>
-      </ul>
+      <h1>{entry.id}</h1>
+
+      <p>{entry.mood}</p>
+      <p>{entry.why}</p>
+      <p>{entry.needs}</p>
     </div>
   );
 }
