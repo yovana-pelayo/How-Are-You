@@ -1,17 +1,17 @@
 import { useEffect } from 'react';
 import { useEntryContext } from '../../context/EntryContext/EntryContext';
-import { getMoods } from '../../services/entries';
+import { getNeeds } from '../../services/entries';
 
-export default function MoodDropdown({ onChange }) {
-  const { moods, setMoods } = useEntryContext();
+export default function NeedsDropdown({ onChange }) {
+  const { needs, setNeeds } = useEntryContext();
   useEffect(() => {
-    const fetchMoods = async () => {
-      const data = await getMoods();
-      setMoods(data);
+    const fetchNeeds = async () => {
+      const data = await getNeeds();
+      setNeeds(data);
       console.log('data', data);
     };
 
-    fetchMoods();
+    fetchNeeds();
   }, []);
   const handleChange = (e) => {
     onChange(e.target.value);
@@ -20,9 +20,9 @@ export default function MoodDropdown({ onChange }) {
     <>
       <form>
         <select onChange={handleChange}>
-          {moods.map((mood) => (
-            <option key={mood.id} value={mood.id}>
-              {mood.feeling}
+          {needs.map((need) => (
+            <option key={need.id} value={need.id}>
+              {need.needs}
             </option>
           ))}
         </select>

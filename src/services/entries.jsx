@@ -23,3 +23,8 @@ export async function getMoods() {
   console.log('resp', resp);
   return checkError(resp);
 }
+export async function getNeeds() {
+  const resp = await client.from('needs').select();
+  console.log('resp', resp);
+  return checkError(resp);
+}

@@ -8,6 +8,8 @@ const EntryProvider = ({ children }) => {
   const [entries, setEntries] = useState([]);
   const [loading, setLoading] = useState(true);
   const [moods, setMoods] = useState([]);
+  const [needs, setNeeds] = useState([]);
+
   //     const fetchEntries = async () => {
   //       const data = await getEntries();
   //       console.log('data', data);
@@ -20,7 +22,16 @@ const EntryProvider = ({ children }) => {
 
   return (
     <EntryContext.Provider
-      value={{ entries, setEntries, loading, setLoading, moods, setMoods }}
+      value={{
+        entries,
+        setEntries,
+        loading,
+        setLoading,
+        moods,
+        setMoods,
+        needs,
+        setNeeds,
+      }}
     >
       {children}
     </EntryContext.Provider>
