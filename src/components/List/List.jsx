@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getFeelings } from '../../services/feelings';
-import EntryDetail from '../EntryDetail/EntryDetail';
+import ItemDetail from '../ItemDetail/ItemDetail';
 
 export default function List() {
   const [entries, setEntries] = useState([]);
@@ -20,9 +20,9 @@ export default function List() {
     <div className="list">
       <h1>List of Feelings</h1>
       <ul>
-        {entries.map((entry) => (
-          <EntryDetail key={entry.id} />
-        ))}
+        <li>
+          <ItemDetail />
+        </li>
       </ul>
     </div>
   );
@@ -30,3 +30,5 @@ export default function List() {
 
 // fetching data from supa base by calling the fetchFeels function
 //
+const [item, setItem] = useState({});
+const [loading, setLoading] = useState(true);
