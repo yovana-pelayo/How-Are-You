@@ -7,8 +7,7 @@ export const EntryContext = createContext();
 const EntryProvider = ({ children }) => {
   const [entries, setEntries] = useState([]);
   const [loading, setLoading] = useState(true);
-
-  //   useEffect(() => {
+  const [moods, setMoods] = useState([]);
   //     const fetchEntries = async () => {
   //       const data = await getEntries();
   //       console.log('data', data);
@@ -20,7 +19,9 @@ const EntryProvider = ({ children }) => {
   //
 
   return (
-    <EntryContext.Provider value={{ entries, setEntries, loading, setLoading }}>
+    <EntryContext.Provider
+      value={{ entries, setEntries, loading, setLoading, moods, setMoods }}
+    >
       {children}
     </EntryContext.Provider>
   );

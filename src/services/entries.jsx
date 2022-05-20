@@ -6,10 +6,10 @@ export async function getEntries() {
   return checkError(resp);
 }
 
-// export async function createTodos(object) {
-//   const resp = await client.from('mood').insert();
-//   return checkError(resp);
-// }
+export async function createEntry() {
+  const resp = await client.from('feelings_list').insert();
+  return checkError(resp);
+}
 // export async function updateCompleted(id, complete) {
 //   const resp = await client
 //     .from('todos_react')
@@ -18,3 +18,8 @@ export async function getEntries() {
 //     .single();
 //   return checkError(resp);
 // }
+export async function getMoods() {
+  const resp = await client.from('mood').select();
+  console.log('resp', resp);
+  return checkError(resp);
+}
