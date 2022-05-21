@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
+import { useUser } from '../../context/UserContext/UserContext';
+import { useHistory } from 'react-router-dom';
 
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [type, setType] = useState('signin');
   const [errorMessage, setErrorMessage] = useState('');
+  const { login, signUp } = useUser();
+  const history = useHistory();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -13,9 +17,10 @@ export default function Login() {
     try {
       const user =
         type === 'signin'
-          ? await signInUser(email, password)
-          : await signupUser(email, password);
-      items.setCurrentUser(user.email);
+          ? await login(email, password)
+          : await signUp(email, password);
+      const url = location.state ? location.state.from.pathname : '/';
+      history.replace(url);
     } catch (e) {
       e.message
         ? setErrorMessage(e.message)
@@ -60,8 +65,10 @@ export default function Login() {
             />
           </label>
         </div>
-        <input type="submit" />
+        <button type="submit">{type}</button>
       </form>
     </div>
   );
 }
+// const url = location.state ? location.state.from.pathname : '/';
+// history.replaceState(url);

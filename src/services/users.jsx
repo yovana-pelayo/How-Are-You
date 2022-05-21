@@ -1,4 +1,4 @@
-import { client, checkError } from './client.js';
+import { client } from './client.js';
 
 export function getUser() {
   return client.auth.session();
@@ -21,6 +21,5 @@ export async function signInUser(email, password) {
 }
 
 export async function logout() {
-  const response = await client.auth.signOut();
-  return checkError(response);
+  return client.auth.signOut();
 }

@@ -17,16 +17,14 @@ export default function MoodDropdown({ onChange }) {
     onChange(e.target.value);
   };
   return (
-    <>
-      <form>
-        <select onChange={handleChange}>
-          {moods.map((mood) => (
-            <option key={mood.id} value={mood.id}>
-              {mood.feeling}
-            </option>
-          ))}
-        </select>
-      </form>
-    </>
+    <form>
+      <select onChange={handleChange}>
+        {moods.map((mood) => (
+          <option key={mood.id} value={mood.id}>
+            {mood.feeling}
+          </option>
+        ))}
+      </select>
+    </form>
   );
 }
