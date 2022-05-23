@@ -20,9 +20,9 @@ export default function App() {
           <Route exact path="/login">
             <Login />
           </Route>
-          <Route path="/">
+          <PrivateRoute path="/">
             <Journal />
-          </Route>
+          </PrivateRoute>
         </Switch>
       </EntryProvider>
     </>

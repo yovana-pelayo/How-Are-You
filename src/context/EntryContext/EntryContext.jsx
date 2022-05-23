@@ -4,14 +4,14 @@ import { createContext } from 'react';
 
 export const EntryContext = createContext();
 
-// function reducer(entries, { type, payload }) {
-//   switch (type) {
-//     case 'create':
-//       return [payload, ...entries];
-//     default:
-//       throw Error(`Unknown action: ${type}`);
-//   }
-// }
+function reducer(entries, { type, payload }) {
+  switch (type) {
+    case 'create':
+      return [payload, ...entries];
+    default:
+      throw Error(`Unknown action: ${type}`);
+  }
+}
 
 const EntryProvider = ({ children }) => {
   const [entries, setEntries] = useState([]);
